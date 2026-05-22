@@ -36,7 +36,7 @@ public class Consulta {
     @Column(columnDefinition = "TEXT")
     private String observacoes;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "pet_id", nullable = false)
     private Pet pet;
 
