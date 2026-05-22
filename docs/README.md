@@ -2,6 +2,8 @@
 
 API REST desenvolvida com Java Spring Boot 3, Docker e Oracle Database, hospedada em uma VM Linux Ubuntu na Microsoft Azure.
 
+---
+
 ## 🚀 Tecnologias
 
 - Java 17
@@ -14,7 +16,7 @@ API REST desenvolvida com Java Spring Boot 3, Docker e Oracle Database, hospedad
 
 ---
 
-# 🌐 Swagger
+## 🌐 Swagger
 
 ```txt
 http://20.206.241.85:9090/swagger-ui/index.html
@@ -22,27 +24,27 @@ http://20.206.241.85:9090/swagger-ui/index.html
 
 ---
 
-# 🔌 Endpoints
+## 🔌 Endpoints
 
 | Método | Endpoint |
 |---|---|
-| GET | /tutores |
-| POST | /tutores |
-| GET | /pets |
-| POST | /pets |
-| GET | /dashboard/resumo |
+| GET | `/tutores` |
+| POST | `/tutores` |
+| GET | `/pets` |
+| POST | `/pets` |
+| GET | `/dashboard/resumo` |
 
 ---
 
-# 🧪 CURLs
+## 🧪 CURLs
 
-## Listar tutores
+### Listar tutores
 
 ```bash
 curl http://20.206.241.85:9090/tutores
 ```
 
-## Criar tutor
+### Criar tutor
 
 ```bash
 curl -X POST http://20.206.241.85:9090/tutores \
@@ -50,13 +52,13 @@ curl -X POST http://20.206.241.85:9090/tutores \
 -d '{"nome":"Joao Teste","email":"joao.teste@fiap.com","telefone":"11999999999"}'
 ```
 
-## Listar pets
+### Listar pets
 
 ```bash
 curl http://20.206.241.85:9090/pets
 ```
 
-## Criar pet
+### Criar pet
 
 ```bash
 curl -X POST http://20.206.241.85:9090/pets \
@@ -64,7 +66,7 @@ curl -X POST http://20.206.241.85:9090/pets \
 -d '{"nome":"Rex","especie":"Cachorro","raca":"Labrador","idade":5,"peso":20.5,"tutorId":1}'
 ```
 
-## Dashboard
+### Dashboard
 
 ```bash
 curl http://20.206.241.85:9090/dashboard/resumo
@@ -72,15 +74,21 @@ curl http://20.206.241.85:9090/dashboard/resumo
 
 ---
 
-# 🐳 Docker
+## 🐳 Docker
+
+### Containers em execução
 
 ```bash
 sudo docker ps
 ```
 
+### Docker Compose
+
 ```bash
 docker compose ps
 ```
+
+### Imagens Docker
 
 ```bash
 docker image ls
@@ -88,24 +96,42 @@ docker image ls
 
 ---
 
-# ☁️ Azure
+## ☁️ Azure
 
 - VM Ubuntu Linux
 - Oracle Database em container
 - Spring Boot em container
-- Porta 9090 liberada
-- Acesso externo funcionando
+- Porta `9090` liberada
+- Acesso externo funcionando pelo IP público
 
 ---
 
-# ✅ Requisitos Atendidos
+## 🔧 Ajustes Realizados
+
+- Removido uso de H2
+- Configurado Oracle Database como banco principal
+- Corrigido `Dockerfile`
+- Corrigido `docker-compose.yml`
+- Porta externa ajustada para `9090`
+- Porta interna da aplicação mantida em `8080`
+- Configurado mapeamento `9090:8080`
+- Desativado `DataInitializer`
+- Criadas tabelas necessárias manualmente no Oracle
+- CRUD validado via `curl`
+- Endpoint público validado na Azure VM
+
+---
+
+## ✅ Requisitos Atendidos
 
 - Dockerfile
 - Docker Compose
 - Oracle Database
+- Sem uso de H2
 - CRUD funcional
 - Deploy Azure
 - Swagger
 - CURL funcionando
 - Containers Docker
 - Persistência de dados
+- Acesso externo via IP público
