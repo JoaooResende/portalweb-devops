@@ -1,0 +1,16 @@
+# Maven / Spring Boot
+target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+# Banco H2
+*.db
+*.mv.db
