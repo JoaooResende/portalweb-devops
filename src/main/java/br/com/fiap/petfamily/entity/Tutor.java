@@ -29,7 +29,12 @@ public class Tutor {
 
     private String telefone;
 
-    @OneToMany(mappedBy = "tutor", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(
+        mappedBy = "tutor",
+        cascade = CascadeType.ALL,
+        orphanRemoval = true,
+        fetch = FetchType.EAGER
+    )
     @Builder.Default
     private List<Pet> pets = new ArrayList<>();
 }
